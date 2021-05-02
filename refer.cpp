@@ -5,7 +5,7 @@
  * @Date         : 2021-04-23 16:34:24
  * @Email        : xjzer2020@163.com
  * @Others       : empty
- * @LastEditTime : 2021-04-24 17:46:32
+ * @LastEditTime : 2021-05-02 14:21:05
  */
 #include <iostream>
 
@@ -90,6 +90,7 @@ void ReferArg(void){
     /* RefArg(2);   //错误
      * 报错：cannot bind non-const lvalue reference of type ‘int&’ to an rvalue of type ‘int’
      *       不能将' int& '类型的非const左值引用绑定到' int '类型的右值
+     *       通俗理解就是，2虽然是一个int类型，但2是一个右值，此处的参数类型是左值引用
      */
 
     RefConstArg(2); //不报错，但此时实参已经不可修改
@@ -135,11 +136,6 @@ int main(int argc, char *argv[]){
     /* 右值引用 */
     RvalueRefer();
 
-    int arr1[2] = {1, 2};
 
-    int(*arr_p)[2] = &arr1;
-
-    int arr[2] = {1, 2};
-    int(&arr_r)[2] = arr;
     return 0;
 }
